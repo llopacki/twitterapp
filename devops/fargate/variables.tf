@@ -37,6 +37,17 @@ variable "app_count" {
   default     = 1
 }
 
+variable "autoscale_min" {
+  description = "Min size of autoscale"
+  default     = 1
+}
+
+variable "autoscale_max" {
+  description = "Max size of autoscale"
+  default     = 2
+}
+
+
 variable "health_check_path" {
   default = "/"
 }

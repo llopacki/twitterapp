@@ -82,6 +82,12 @@ provider:
 functions:
   hello:
     handler: handler.lambda_handler
+    events:
+        - stream:
+            arn: arn:aws:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/twitterstream2
+            batchSize: 100
+            startingPosition: LATEST
+            enabled: true
     environment:
       orderStreamName: twitterstream2
 #    The following are a few example events you can configure
