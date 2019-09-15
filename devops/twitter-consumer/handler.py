@@ -1,3 +1,4 @@
+# Notice: located in devops directory (configuration of serverless.com) and linked to consumer dir
 import json
 import base64
 
