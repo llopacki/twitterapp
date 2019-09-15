@@ -1,0 +1,40 @@
+## Feed data using TwitterAPI and feed data into kinesis
+from TwitterAPI import TwitterAPI
+import boto3
+import json
+import twitterCfg
+import twitterCrd
+import twitterFlt
+
+## fetch twitter credentials
+consumer_key = twitterCrd.consumer_key
+consumer_secret = twitterCrd.consumer_secret
+access_token_key = twitterCrd.access_token_key
+access_token_secret = twitterCrd.access_token_secret
+
+## fetch other config
+# max_long = twitterFlt.maxLong
+# min_long = twitterFlt.minLong
+# max_lat = twitterFlt.maxLat
+# min_lat = twitterFlt.minLat
+
+Filter = twitterFlt.trackTerm
+Region = twitterCfg.awsRegion
+
+api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
+kinesis = boto3.client('kinesis',
+                       region_name=Region)
+
+print("Filter: "+Filter)
+r = api.request('statuses/filter', {'track': Filter})
+
+## stream tweets through kinesis
+i = 0
+for item in r:
+    print("Tweet#: " + str(i))
+    i += 1
+    kinesis.put_record(
+        StreamName="twitterstream2",
+        Data=json.dumps(item),
+        PartitionKey="filler"
+    )
