@@ -20,7 +20,8 @@ AWS components in use:
 - Fargate / ECS / ECR
 
 Limitations:
-The consumer is currently only logging the streamed tweets to CloudWatch 
+- The consumer is currently only logging the streamed tweets to CloudWatch 
+- Only dev environment configured. Full deployment would require staging and prod
 
 
 

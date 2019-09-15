@@ -8,7 +8,7 @@ resource "aws_ecs_cluster" "main" {
 }
 
 data "template_file" "twapp_app" {
-  template = file("./fargate/templates/ecs/twapp_app.json.tpl")
+  template = file("./templates/ecs/twapp_app.json.tpl")
 
   vars = {
     app_image      = var.app_image
