@@ -6,5 +6,6 @@ RUN pip install TwitterAPI
 RUN pip install boto3
 RUN pip install awscli
 COPY . /app
-CMD python /app/twitter-kinesis-feed.py
+COPY .aws/ /root/.aws/
+CMD /app/wrapper.sh
 

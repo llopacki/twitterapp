@@ -17,6 +17,11 @@ variable "ecs_auto_scale_role_name" {
   default = "myEcsAutoScaleRole"
 }
 
+variable "ecs_policy_name" {
+  description = "ECS policy name"
+  default = "myEcsPolicy"
+}
+
 variable "az_count" {
   description = "Number of AZs to cover in a given region"
   default     = "2"

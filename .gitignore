@@ -7,3 +7,4 @@ devops/.terraform
 devops/ecr/.terraform
 devops/fargate/.terraform
 producer/twitterCrd.py
+producer/.aws/credentials

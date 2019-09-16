@@ -23,5 +23,6 @@ Limitations:
 - The consumer is currently only logging the streamed tweets to CloudWatch 
 - Only dev environment configured. Full deployment would require staging and prod
 
-
+Other comments:
+- Credential handling is not "best practice", needs to be improved
 
