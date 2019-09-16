@@ -21,12 +21,13 @@ data "template_file" "twapp_app" {
 
 resource "aws_ecs_task_definition" "app" {
   family                   = "twapp-app-task"
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn       = aws_iam_role.execution.arn
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.fargate_cpu
   memory                   = var.fargate_memory
   container_definitions    = data.template_file.twapp_app.rendered
+  task_role_arn            = aws_iam_role.task.arn
 }
 
 resource "aws_ecs_service" "main" {
@@ -48,5 +49,7 @@ resource "aws_ecs_service" "main" {
     container_port   = var.app_port
   }
 
-  depends_on = [aws_alb_listener.front_end, aws_iam_role_policy_attachment.ecs_task_execution_role]
+  depends_on = [aws_alb_listener.front_end]
 }
+
+# , aws_iam_role_policy_attachment.ecs_task_execution_role

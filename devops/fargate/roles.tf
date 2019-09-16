@@ -2,45 +2,26 @@
 # ECS task execution role data
 # based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
-
-data "aws_iam_policy_document" "ecs_task_execution_role" {
-  version = "2012-10-17"
-  statement {
-    sid = ""
-    effect = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com"]
-    }
-  }
+resource "aws_iam_role" "execution" {
+  name               = "${var.name_prefix}-task-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.task_assume.json
 }
 
-# ECS task execution role
-resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = var.ecs_task_execution_role_name
-  assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
+resource "aws_iam_role_policy" "task_execution" {
+  name   = "${var.name_prefix}-task-execution"
+  role   = aws_iam_role.execution.id
+  policy = data.aws_iam_policy_document.task_execution_permissions.json
 }
 
-# ECS task execution role policy attachment
-resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
-  role       = aws_iam_role.ecs_task_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+resource "aws_iam_role" "task" {
+  name               = "${var.name_prefix}-task-role"
+  assume_role_policy = data.aws_iam_policy_document.task_assume.json
 }
 
-# ECS auto scale role data
-data "aws_iam_policy_document" "ecs_auto_scale_role" {
-  version = "2012-10-17"
-  statement {
-    effect = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["application-autoscaling.amazonaws.com"]
-    }
-  }
+resource "aws_iam_role_policy" "log_agent" {
+  name   = "${var.name_prefix}-log-permissions"
+  role   = aws_iam_role.task.id
+  policy = data.aws_iam_policy_document.task_permissions.json
 }
 
 # ECS auto scale role
@@ -54,5 +35,3 @@ resource "aws_iam_role_policy_attachment" "ecs_auto_scale_role" {
   role       = aws_iam_role.ecs_auto_scale_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"
 }
-
-

@@ -66,3 +66,14 @@ variable "fargate_memory" {
   description = "Fargate instance memory to provision (in MiB)"
   default     = "2048"
 }
+
+variable "kinesis_stream" {
+  description = "Kinesis stream"
+  default = "arn:aws:kinesis:eu-west-1:712552468879:stream/twitterstream2"
+}
+
+variable "name_prefix" {
+  description = "A name prefix"
+  default = "twitterapp"
+  type        = string
+}

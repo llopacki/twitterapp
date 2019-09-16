@@ -20,6 +20,7 @@ access_token_secret = twitterCrd.access_token_secret
 
 Filter = twitterFlt.trackTerm
 Region = twitterCfg.awsRegion
+Stream = twitterCfg.awsStream
 
 api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 kinesis = boto3.client('kinesis',
@@ -34,7 +35,7 @@ for item in r:
     print("Tweet#: " + str(i))
     i += 1
     kinesis.put_record(
-        StreamName="twitterstream2",
+        StreamName=Stream,
         Data=json.dumps(item),
         PartitionKey="filler"
     )
