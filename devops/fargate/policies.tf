@@ -1,5 +1,5 @@
-# Fargate policies
-# policies.tf
+## Fargate policies
+## policies.tf
 
 data "aws_iam_policy_document" "task_execution_permissions" {
   statement {
@@ -25,10 +25,7 @@ data "aws_iam_policy_document" "task_execution_permissions" {
     resources = [
       "*"
     ]
-
-
   }
-
 }
 
 # Task logging privileges

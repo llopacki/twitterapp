@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# ecs.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate infrastructure
+## ecs.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 
 resource "aws_ecs_cluster" "main" {

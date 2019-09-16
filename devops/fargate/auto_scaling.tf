@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# auto_scaling.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate infrastructure
+## auto_scaling.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 resource "aws_appautoscaling_target" "target" {
   service_namespace  = "ecs"

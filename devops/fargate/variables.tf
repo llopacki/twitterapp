@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# variables.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate variables
+## variables.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 variable "aws_region" {
   description = "The AWS region things are created in"

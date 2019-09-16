@@ -1,5 +1,7 @@
-# This is a stub for twitterCrd.py file (not committed into the git repo
-# Remember to create twitterCrd.py file with following content with your twitter developer creds
+## AWS credentials
+## twitterCrd.py
+## This is a stub for twitterCrd.py file (not committed into the git repo
+## Remember to create twitterCrd.py file with following content with your twitter developer creds
 
 consumer_key = "FillThisOut"
 consumer_secret = "FillThisOut"

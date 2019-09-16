@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# logs.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate infrastructure
+## logs.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 
 # Set up CloudWatch group and log stream and retain logs for 30 days

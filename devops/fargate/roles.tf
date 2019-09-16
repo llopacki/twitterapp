@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# ECS task execution role data
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate roles
+## ECS task execution role data
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 resource "aws_iam_role" "execution" {
   name               = "${var.name_prefix}-task-execution-role"

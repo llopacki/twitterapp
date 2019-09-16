@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# security.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate security
+## security.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 # ALB Security Group: Edit to restrict access to the application
 resource "aws_security_group" "lb" {

@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# provider.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate provider
+## provider.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 
 # Specify the provider and access details

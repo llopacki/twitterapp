@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# alb.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate infrastructure
+## alb.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 resource "aws_alb" "main" {
   name            = "twapp-load-balancer"

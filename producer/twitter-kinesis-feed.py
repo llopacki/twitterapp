@@ -1,4 +1,8 @@
-## Feed data using TwitterAPI and feed data into kinesis
+## Producer
+## twitter-kinesis-feed.py
+## Reads the Tweets using TwitterAPI and feed data into kinesis
+## Based on https://blog.insightdatascience.com/getting-started-with-aws-serverless-architecture-tutorial-on-kinesis-and-dynamodb-using-twitter-38a1352ca16d
+
 from TwitterAPI import TwitterAPI
 import boto3
 import json

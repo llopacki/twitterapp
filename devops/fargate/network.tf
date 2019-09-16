@@ -1,6 +1,6 @@
-# Fargate infrastructure
-# network.tf
-# based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
+## Fargate infrastructure
+## network.tf
+## based on https://github.com/bradford-hamilton/terraform-ecs-fargate/
 
 
 # Fetch AZs in the current region
